@@ -1,0 +1,60 @@
+key:
+    includes
+    modulos
+    modulos allegro
+    bibliotecas
+    bibliotecas allegro
+desc:
+    #include <allegro5/allegro.h> 
+                     Padrão
+                     
+    #include <allegro5/allegro_native_dialog.h>
+                     Modulo de Caixas de dialogo/popups
+                     
+    #include <allegro5/allegro_image.h>
+                     Modulo de imagens
+                     
+    #include <allegro5/allegro_color.h>
+                     Moduo de cores
+                     
+    #include <allegro5/allegro_font.h>
+                     Modulo de fontes
+                     
+    #include <allegro5/timer.h>
+                     Modulo de tempo e eventos temporizados
+                     
+    #include <allegro5/allegro_ttf.h>
+                     Modulo de formato de fontes ttf
+                     
+    #include <allegro5/allegro_primitives.h>
+                     Modulo de desenhos primitivos
+                     
+    #include <allegro5/allegro_acodec.h>
+                     Modulo de formato de audio acodec
+                     
+    #include <allegro5/allegro_audio.h>
+                     Modulo de audio
+key:
+    variaveis
+    estruturas
+    classes
+    variaveis allegro
+    estruturas allegro
+    classes allegro
+desc:
+    ALLEGRO_DISPLAY*
+                    
+    ALLEGRO_TIMER*
+    
+    ALLEGRO_BITMAP*
+    
+    ALLEGRO_FONT*
+    
+    ALLEGRO_QUEUE*
+    
+    ALLEGRO_EVENT
+    
+    ALLEGRO_COLOR*
+    
+    
+    

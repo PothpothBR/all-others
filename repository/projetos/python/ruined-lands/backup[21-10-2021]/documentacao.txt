@@ -1,0 +1,121 @@
+---- status.py ----
+
+-- variaveis --
+
+__status = None
+    * variavel para armazenar o ultimo status de execussao reportado
+
+__description = None
+    * variavel para armazenar a descrição do ultimo status reportado
+
+
+-- funcoes --
+
+report(status: int, description: str)
+    - status - o valor do status a ser armazenado
+    - description - a descrição do status
+    * função que realiza o armazenamento de um status
+
+status()
+    * função que retorna o ultimo status gerado
+    * essa função limpa o status e sua descição
+
+description()
+    * funcao para retornar uma tupla com o status e sua descrição na respectiva ordem
+    * essa funcao limpa o status e sua descrição
+
+
+---- channels.py ----
+
+--- classes ---
+
+Entity
+    -- funcoes --
+    
+    __init__(self, id, entity, lifetime, mechanic=[None, None, None]):
+        - id - o identificador da entidade
+        - entity - a entidade a ser armazenada
+        - lifetime - o numero maximo de execussoes que a entidade podera ter ate ser destruida
+        - mechanic - funcoes que sao executadas ao criar, executar e destruir a entidade, na respectiva ordem
+        * cria a entidade e suas variaveis de uso interno
+    
+    spawn()
+        * simplifica a execussao da funcao de criação da entidade
+
+    flow()
+        * simplifica a execussao da funcao de execussao da entidade
+
+    destroy()
+        * simplifica a execussao da funcao de destruicao da entidade
+
+    * a entidade pode conter qualquer tipo de objeto ou variavel, que serve de alimentacao para a funcao de execussao
+    * a entidade é usada na classe Channel aonde cada entidade é executada na sua respectiva ordem, tendo sua funcao de execussao chamada
+      e tendo como parametro sua entidade: Entity.flow(Entity.entity)
+    * a entidade tem seu unico ideal e uso servir de encapsulador para funcoes que serao executadas na classe Channel
+
+Channel
+    -- constantes estaticas --
+    
+    INFINITY = -1
+        * usada em ChannelL.flow(times = Channel.INFINITY) e Entity.__init__(lifetime = Channel.INFINITY)
+        * flag que serve para informar o uso ininterrupto
+
+    -- variaveis --
+    self.lenght = 1
+        * informa a quantidade de entidades existentes
+        * iniciada com 1 pois ao iniciar é criado uma entidade padrao que é de uso esclusivo da classe
+
+    self.head = Entity(-1, self.lenght, -1)
+        * armazena a entidade padrao que é de uso esclusivo da classe
+
+    self.anchor = self.head
+        * armazena a ultima entidade inserida no loop
+        * inicia com o proprio head, que é a entidade padrao
+        * o fim da ultima entidade é ligado ao self.head possibilitando um loop fechado
+    
+    self.max_lenght = max_len
+        * armazena o tamanho maximo de entidades no loop
+
+    -- funcoes --
+    
+    __init__(self, max_len: int)
+        - max_len - informa o numero maximo de entidades que podem ser inseridas no loop
+
+    add(self, entity: Entity)
+        - entity: Entity -
+            * o objeto Entidade a ser inserido no loop
+        * se o tamanho maximo da fila for atingido, nao insere no loop e retorna um erro do tipo status.description()
+
+    add_multi(self, entities: tuple):
+        - entities: tuple -
+            * uma tupla de entidades para ser iterada e inserida no loop
+            * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    spawn(self, id, entity, lifetime, mechanic=[None, None, None]):
+        * cria uma entidade e insere-a no loop
+        * os argumentos da função sao os mesmos de Entity.__init__
+        * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    spawn_multi(self, entities: tuple)
+        - entities: tuple -
+            * uma tupla de tuplas contendo argumentos para criar entidades e inseri-las no loop
+            * ex: ((args), (args), (args)
+            * os argumentos da função sao os mesmos de Entity.__init__
+            * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    destroy(self, id)
+        - id -
+            * o identificador da entidade a ser destruida
+            * ele itera no loop inteiro ate encontrar o id e remover a entidade, pode ser lento em loops massivos
+            * se a entidade a ser destruida for a entidade padrao: id = -1, sera encerrada a funcao e um erro do tipo status.description() e gerado
+
+    destroy_after(self, back_point: Entity)
+        - back_point: Entity -
+            * a entidade antes da entidade a ser destruida
+            * executado de forma direta, mais eficiente no geral, com ganho de eficiencia em relacao a Channel.destroy conforme o loop cresce
+
+    flow(self, times)
+        - times -
+            * quantas entidades serao executadas ate a funcao retornar o controle ao programa
+            * pode-se inserir em formato de [ciclos, entidades]: 1 ciclo = self.lenght entidades executadas
+            * tambem pode-se informar o numero bruto de entidades a serem executadas (desconsiderando a entidade padrao: id = -1)

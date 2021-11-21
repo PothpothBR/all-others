@@ -1,0 +1,15 @@
+'porta': 22479
+'debug': 'false'
+'player': 
+    'moedas': 4000
+    'nome': 'bruno'
+    'nivel': 18
+    'inventario': 
+        'batatas': 880
+        'espada-rara': 
+            'usos-restantes': 4679
+            'dano': 4.726
+        :'espada-rara'
+        'marreta-do-zoio': 4
+    :'inventario'
+:'player'

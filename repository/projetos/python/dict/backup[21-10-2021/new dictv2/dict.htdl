@@ -1,0 +1,28 @@
+<cache>
+     <data>
+         <key: bruno>
+             eu sou o criador
+         </key>
+         <masterkey: tudo>
+             <key: bruno>
+             <key: vers>
+         </masterkey>
+     </data>
+     
+     <configuration>
+         <type: ascii>
+         <cripto: none>
+         <lines: 28>
+         <debug: none>
+         <error: none>
+     </configuration>
+     
+     <document>
+         <author: bruno>
+         <version: 1.0.0>
+         <lang: pt-br>
+         <desc: template de biblioteca>
+         <title: template>
+     </document>
+     
+</cache>

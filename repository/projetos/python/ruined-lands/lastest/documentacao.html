@@ -1,0 +1,284 @@
+<html lang='pt-br'>
+	<head>
+
+		<title>Ruined Lands - Code Reference Manual</title>
+
+		<style type='text/css'>
+			body{
+				background: lightgray;
+			}
+			code{
+				font-style: italic;
+			}
+
+			.file{
+				padding: 3em;
+				border: 4px solid gray;
+				margin: 0.5em;
+			}
+
+			/* arquivo */
+			.file h1{
+				color: gray;
+				font-size: 2em;
+				text-decoration: underline;
+				margin-left: 4em;
+			}
+
+
+			.topic{
+				border: 1px solid black;
+				display: block;
+				padding: 0.5em;
+				margin: 0.5em
+			}
+
+			/* cabecalho da lista do arquivo */
+			.topic h2{
+				font-weight: bolder;
+				font-size: 1.2em;
+				list-style: none;
+			}
+
+			/* função/variavel do arquivo */
+			.topic span code{
+				display:inline-block;
+				font-size: 1.2em;
+				list-style: none;
+				padding-left: 1em;
+				padding-top: 0.3em;
+			}
+			/* descricao da funcao/variavel do arquivo */
+			.topic span p{
+				font-size: 1em;
+				list-style: none;
+				padding-left: 2em;
+				margin: 0px;
+			}
+			/* cabecalho da funcao */
+			.child1-desc-header{
+				font-weight: bold;
+				font-size: 1em;
+				list-style: none;
+				padding-left: 3em;
+				padding-top: 0.5em;
+			}
+			/* descricao do cabecalho da funcao */
+			.child1{
+				font-size: 1em;
+				list-style: none;
+				padding-left: 4em;
+			}
+			/* argumento da funcao */
+			.child1 code{
+				font-size:1em;
+				font-style: italic;
+				padding: 0px;
+				margin: 0px;
+			}
+			/* descricao do argumento da funcao */
+			.child1 p{
+				padding: 0px;
+				margin: 0px 0px 0px 1em;
+			}
+			/* cabecalho da lista do arquivo */
+			.list-class-h{
+				font-weight: bolder;
+				font-size: 1.2em;
+				list-style: none;
+				margin-top: 0.5em;
+				padding-left: 3em;
+			}
+			/* função/variavel do arquivo */
+			.list-class-item-h{
+				font-size:1.1em;
+				font-style: italic;
+				list-style: none;
+				padding-top: 0.3em;
+				padding-left: 4em;
+			}
+			/* descricao da funcao/variavel do arquivo */
+			.list-class-item-d{
+				list-style: none;
+				padding-left: 6em;
+			}
+			/* cabecalho da funcao */
+		</style>
+	</head>
+
+<body>
+
+	<div class='file'>
+		<h1>status.py</h1>
+
+		<div class='topic'>
+			<h2>variaveis:</h2>
+
+			<span>
+				<code>__status = None</code>
+				<p>+ variavel para armazenar o ultimo status de execussao reportado</p>
+			</span>
+			<span>
+				<code>__description = None</code>
+				<p>+ variavel para armazenar a descrição do ultimo status reportado</p>
+			</span>
+		</div>
+		<div class='topic'>
+		<h2>funcoes:</h2>
+		    <span>
+						<code>report(status: int, description: str)</code>
+						<p>+ função que realiza o armazenamento de um status</p>
+
+						<li class='child1-desc-header'>argumentos:</li>
+						<li class='child1'>
+							<code>status</code>
+							<p>+ o valor do status a ser armazenado</p></li>
+						</li>
+						<li class='child1'>
+								<code>description</code>
+								<p>+ a descrição do status</p>
+						</li>
+		    </span>
+			<li class='file-item-name'><code>status()</code></li>
+			<li class='file-item-desc'>+ função que retorna o ultimo status gerado</li>
+			<li class='file-item-desc'>+ essa função limpa o status e sua descição</li>
+
+			<li class='file-item-name'><code>description()</code></li>
+			<li class='file-item-desc'>+ funcao para retornar uma tupla com o status e sua descrição na respectiva ordem</li>
+			<li class='file-item-desc'>+ essa funcao limpa o status e sua descrição</li>
+			</div>
+	</div>
+
+	<div class='file'>
+		<h1>channels.py</h1>
+
+		<h2>classes:</h2>
+			<li class='file-item-name'><code>Entity(self, id, entity, lifetime, mechanic=[None, None, None])</code></li>
+			<li class='file-item-desc'>+ a entidade pode conter qualquer tipo de objeto ou variavel, que serve de alimentacao para a funcao de execussao</li>
+			<li class='file-item-desc'>+ a entidade é usada na classe <code>Channel</code> aonde cada entidade é executada na sua respectiva ordem, tendo sua funcao de execussao chamada</li>
+			<li class='file-item-desc'>e tendo como parametro a variavel entidade: <code>Entity.flow(Entity.entity)</code></li>
+			<li class='file-item-desc'>+ a entidade tem seu unico ideal e uso servir de encapsulador para funcoes que serao executadas na classe <code>Channel</code></li>
+
+			<li class='child1-desc-header'>construtor:</li>
+			<li class='child1'>
+				<code>id</code>
+				<p>+ o identificador da entidade</p>
+			</li>
+			<li class='child1'>
+				<code>entity</code>
+				<p>+ o identificador da entidade</p>
+			</li>
+			<li class='child1'>
+				<code>lifetime</code>
+				<p>+ o numero maximo de execussoes que a entidade podera ter ate ser destruida</p>
+			</li>
+			<li class='child1'>
+				<code>mechanics</code>
+				<p>+ lista de funcoes que sao executadas ao criar, executar e destruir a entidade, na respectiva ordem</p>
+			</li>
+
+			<li class='child1-desc-header'>metodos:</li>
+			<li class='child1'>
+				<code>spawn()</code>
+				<p>+ simplifica a execussao da funcao de criação da entidade</p>
+			</li>
+			<li class='child1'>
+				<code>flow()</code>
+				<p>+ simplifica a execussao da funcao de execussao da entidade</p>
+			</li>
+			<li class='child1'>
+				<code>destroy()</code>
+				<p>+ simplifica a execussao da funcao de destruicao da entidade</p>
+			</li>
+
+		<li class='file-item-name'><code>Channel(self, max_len: int)</code></li>
+		<li class='file-item-desc'>+ Classe para manipular os dados encapsulados com as Entity classes</li>
+		<li class='file-item-desc'>+ usa um sistema de lista encadeada de loop fechado, ou sendo o ultimo elemento aponta para o head</li>
+
+		<li class='child1-desc-header'>construtor:</li>
+		<li class='child1'>
+			<code>max_len</code>
+			<p>+ o numero maximo de entidades no loop</p>
+		</li>
+
+		<li class='child1-desc-header'>constantes estaticas:</li>
+		<li class='child1'>
+			<code>INFINITY = -1</code>
+			<p>+ usada em <code>ChannelL.flow(times = Channel.INFINITY)</code> e <code>Entity.__init__(lifetime = Channel.INFINITY)</code></p>
+			<p>+ flag que serve para informar o uso ininterrupto</p>
+		</li>
+
+		<li class='child1-desc-header'>variaveis:</li>
+		<li class='child1'>
+			<code>max_len</code>
+			<p>+ o numero maximo de entidades no loop</p>
+		</li>
+
+		<li class='child1-desc-header'>metodos:</li>
+
+		<li class='child1'><code>spawn()</code></li>
+		<li class='list-class-item-d'>+ simplifica a execussao da funcao de criação da entidade</li>
+
+</div>
+Channel
+
+    -- variaveis --
+    self.lenght = 1
+        * informa a quantidade de entidades existentes
+        * iniciada com 1 pois ao iniciar é criado uma entidade padrao que é de uso esclusivo da classe
+
+    self.head = Entity(-1, self.lenght, -1)
+        * armazena a entidade padrao que é de uso esclusivo da classe
+
+    self.anchor = self.head
+        * armazena a ultima entidade inserida no loop
+        * inicia com o proprio head, que é a entidade padrao
+        * o fim da ultima entidade é ligado ao self.head possibilitando um loop fechado
+
+    self.max_lenght = max_len
+        * armazena o tamanho maximo de entidades no loop
+
+    -- funcoes --
+
+    __init__(self, max_len: int)
+        - max_len - informa o numero maximo de entidades que podem ser inseridas no loop
+
+    add(self, entity: Entity)
+        - entity: Entity -
+            * o objeto Entidade a ser inserido no loop
+        * se o tamanho maximo da fila for atingido, nao insere no loop e retorna um erro do tipo status.description()
+
+    add_multi(self, entities: tuple):
+        - entities: tuple -
+            * uma tupla de entidades para ser iterada e inserida no loop
+            * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    spawn(self, id, entity, lifetime, mechanic=[None, None, None]):
+        * cria uma entidade e insere-a no loop
+        * os argumentos da função sao os mesmos de Entity.__init__
+        * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    spawn_multi(self, entities: tuple)
+        - entities: tuple -
+            * uma tupla de tuplas contendo argumentos para criar entidades e inseri-las no loop
+            * ex: ((args), (args), (args)
+            * os argumentos da função sao os mesmos de Entity.__init__
+            * se atingir o limite, pare a inserção e retorne um erro do tipo status.description()
+
+    destroy(self, id)
+        - id -
+            * o identificador da entidade a ser destruida
+            * ele itera no loop inteiro ate encontrar o id e remover a entidade, pode ser lento em loops massivos
+            * se a entidade a ser destruida for a entidade padrao: id = -1, sera encerrada a funcao e um erro do tipo status.description() e gerado
+
+    destroy_after(self, back_point: Entity)
+        - back_point: Entity -
+            * a entidade antes da entidade a ser destruida
+            * executado de forma direta, mais eficiente no geral, com ganho de eficiencia em relacao a Channel.destroy conforme o loop cresce
+
+    flow(self, times)
+        - times -
+            * quantas entidades serao executadas ate a funcao retornar o controle ao programa
+            * pode-se inserir em formato de [ciclos, entidades]: 1 ciclo = self.lenght entidades executadas
+            * tambem pode-se informar o numero bruto de entidades a serem executadas (desconsiderando a entidade padrao: id = -1)
+</body>

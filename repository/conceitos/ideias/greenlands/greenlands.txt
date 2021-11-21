@@ -1,0 +1,100 @@
+jogo focado em:
+    * obter XP;
+    * lutar;
+    * evoluir (comprar melhorias);
+    * interagir (com outros jogadores e npcs);
+    * mercantilismo (vendas, trocas e outras interacoes de mercado);
+
+obter XP:
+    * parte mais importante;
+    * obtem-se atravez de:
+        * matar monstros (maior quantia);
+        * comprar ou vender coisas (quantia média);
+        * interagir com qualquer coisa (menor quantia);
+    * perde-se atravez de:
+        * morrer (maior quantia, baseado em % eponencial em relacao ao nivel de pode atual);
+        * matar outros jogadores (quantia média baseado em % exponencial em relacao ao nivel atual);
+        * vendas ou compras (menor quantia);
+lutas:
+    * segunda parte mais importante:
+        * encontros aleatorios com monstros (em certas condições);
+        * monstros aparecem no chat aleatoriamente;
+        * eventos especiais (datas comemorativas, mecanicas unicas para encontrar monstros);
+        * eventos fixos (monstros de mundo que aparecem de hora em hora, dia em dia);
+        * caça (procurar por monstros, aumenta a % de spawnar, imposibilita de fazer outra ação);
+
+evoluir:
+    * terceira parte mais importante
+    * com sistema de rank de poder
+    * se evolui atravez de:
+        * obtenção de XP;
+        * melhoria de equipamento (roupas e armamento);
+        * melhoria de abilidades;
+        * melhoria de passivas, runas, e outros buffs permanentes;
+        * pets, montarias e outros seguidores;
+    * os atributos serao:
+	* defesa:
+            * vida (valor de vida real);
+            * armadura (valor de reducao de dano fisico e um pouco de magico);
+            * benção (valor de reducao de dano magico e um pouco de fisico);
+            * escudo ("vida" extra a qual nao se aplica atributos de armadura e benção);
+                * escudos regeneram;
+                * protegem dano fisico e magico, pois atuam como a vida;
+                * se um dano atingir o escudo e extrapolar o valor de dano extra é ignorado;
+            * esquiva (chance(%) de ignorar % do dano recebido);
+            * buffs de defesa;
+        * ataque:
+            * dano fisico;
+            * dano mágico;
+            * buffs de dano (fisico, magico ou ambos);
+            * crítico (cahnce de causar dano extra, e % de dano extra causado);
+            * dano tatico a inimigos(debufs que causam dano com mecanica):
+                * dano alto, curto prazo, aplicado lentamente - doença M
+                * dano alto, curto prazo, aplicado rapidamente - raio F
+                * dano alto, longo prazo, aplicado lentamente - veneno F
+                * dano alto, longo prazo, aplicado rapidamente - azar M (ocorrerao acidentes e outros eventos)
+                    * a cada vez que perder sorte abaixo de 0 existe uma chanse de azar ser aplicado, (aumenta quanto mais negativo for a sorte)
+                * dano baixo, curto prazo, aplicado lentamente - fadiga/fraquesa M
+                * dano baixo, curto prazo, aplicado rapidamente - fogo F
+                * dano baixo, longo prazo, aplicado lentamente - maldição M
+                * dano baixo, longo prazo, aplicado rapidamente - sangramento F
+        * modificadoes:
+            * sorte:
+                * modifica a chances de algo ocorrer ao personagem globalmente;
+                * muita sorte muita chance de algo bom ocorrer;
+                * pouca sorte muita chance de algo ruim ocorrer;
+                * se a sorte for muito baixa, o debuff de mecanica: azar sera aplicado;
+                * o debuff azar restaura a sorte até chegar a 0, ou ate o personagem morrer(ao renacer a sorte se mantem);
+            * pets:
+                * auxiliam no combate com mecanica propria;
+                * posuem atributos iguais ao do personagem;
+                * pets pegam uma pequena % dos atributos do player;
+                * podem conceder atributos e mecanicas extras e que interagem com as outras formas de jogar (mercado, xp, interacao, etc);
+            * buffs:
+                * podem ser modificadores em todas as areas de jogo (buff de xp, de ganho de moedas etc);
+                * podem ser modificadores simples de combate (aumento de atributos, tanto de valor fixo quanto porcentagem);
+                * podem ser prejudiciasis (debuffs), sendo modificadores simples de combate (reducao de atributos, tanto de valor fixo quanto porcentagem);
+
+interagir:
+    * quarta parte;
+    * se interage com:
+        * npcs (de historia, side quests, mercadores, de luta(seriam npcs agresivos), etc);
+        * monstros (lutas, coletas(no caso de animais, tipo la de ovelhas, leite de vaca));
+        * players (lutas, desafios, trocas, etc);
+        * objetos (coletas, tipo arvores, frutas, minerios etc, loot de monstros, etc);
+
+mercantilismo:
+    * quinta parte;
+    * o mercado pode ocorrer com os players e npcs;
+    * o mercado tem taxas de preco para vendas de players;
+    * o dinheiro do mercado é fixo(um montante de moedas que nao muda);
+    * o dinheiro em mercado aumenta de forma gradativa e interativa com os players (tipo eventos que colocam mais dinheiro na rede);
+    * o dinheiro diminui em eventos (aonde o montante é retirado de players azarados ou do montante livre da rede(sem posse de players))
+    * o xp tambem pode servir como moeda em certas ocasioes;
+    * o valor do dinheiro pode aumentar e diminuir;
+    * o xp tem valor fixo e é usado para comparar o valor do dinheiro;
+    * tudo que esta a compra e venda tem valor que variam de acordo com a demanda e disponibilidade(quantidade no mercado)
+    * deve existir o mercado negro:
+        * produtos raros e extremamente caros;
+        * com dificil acesso;
+        * deve aver perigos e custos ao se procurar/usar o mercado negro;

@@ -1,0 +1,15 @@
+{
+  "name": "nightbot",
+  "version": "1.0.0",
+  "description": "a steel bot...",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node core"
+  },
+  "author": "Bruno Dalagnol",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}

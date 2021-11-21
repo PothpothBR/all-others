@@ -1,0 +1,26 @@
+key:
+    linear-gradient
+    linear gradient
+desc:
+    linear-gradient(to <dir>,color,color)
+    dir:
+        to up
+        to down
+        to left
+        to right
+        to up left
+        to up right
+        to down left
+        to down right
+key:
+    sublinhado
+desc:
+    <u>
+key:
+    style
+    style extern
+desc:
+    <link rel="stylesheet" type="text/css" href="link.css">
+end:
+
+biblioteca de html css

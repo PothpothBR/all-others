@@ -1,0 +1,55 @@
+
+
+
+
+
+key:
+    linear-gradient
+
+    linear gradient
+desc:
+
+    linear-gradient(to <dir>,color,color)
+    dir:
+        to up
+        to down
+        to left
+        to right
+        to up left
+        to up right
+        to down left
+        to down right
+
+key:
+    sublinhado
+desc:
+    <u>
+key:
+    style
+desc:
+    <link rel="stylesheet" type="text/css" href="link.css">
+
+!#      biblioteca de ASSEMBLY
+
+key:
+    assembly basic
+desc:
+    section .data
+    
+        dados constantes
+    
+    section .bss
+    
+        variaveis
+    
+    section .text
+    global _start
+    
+    _start:
+
+    codigo
+key:
+    assembly
+desc:
+    sesoes
+end:

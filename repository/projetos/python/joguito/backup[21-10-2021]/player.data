@@ -1,0 +1,44 @@
+'xp': 0
+'clothes': 
+    'head': ''
+    'body': ''
+    'hands': ''
+    'legs': ''
+    'foots': ''
+:'clothes'
+'weapons': 
+    'left hand': ''
+    'right hand': ''
+:'weapons'
+'abilities': []
+'localization': 'gentle wind'
+'coins': 0
+'name': 'Diven'
+'level': 0
+'hp': 200
+'lucky': 0.5
+'defense': 20
+'velocity': 8
+'inventory': 
+:'inventory'
+'passives': []
+'info': 'Um errante qualquer...'
+'power': 
+    'mana': 200
+    'energy': 80
+:'power'
+'regeneration': 
+    'mana': 20
+    'energy': 8
+    'hp': 2
+:'regeneration'
+'damage': 
+    'right': 8
+    'continuum': 
+        'tick': 5
+        'count': 2
+    :'continuum'
+:'damage'
+'strength': 50
+'critic': 0.2
+'life steal': 0.2
