@@ -22,7 +22,6 @@ void tstfr(Work* self) {
 int main() {
 
 	Workspace* wks = create_workspace(new Workspace_info{11, 22, 33, 44});
-	
 	cin.get();
 	return 0;
 }

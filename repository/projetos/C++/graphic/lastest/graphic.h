@@ -18,7 +18,7 @@ public:
 	// variaveis de dados
 	const int screen_x = 1080, screen_y = 720;
 	int _mouse_x = -1, _mouse_y = -1;
-	const float fps = 0.016;
+	const float fps = 0.025;
 	bool flipsys = true;
 	char lastchar = ' ';
 	bool keyb_p = false;
@@ -95,12 +95,11 @@ public:
 		return flipsys;
 	}
 
-	// rotinas logicas aki, imbutido rotinas de eventos
+	// rotinas logicas aqui, imbutido rotinas de eventos
 	bool timed() {
 
 		//aguarda entrada de eventos
 		al_wait_for_event(queue, &ev);
-
 		// processa os eventos
 		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
 			keyb_p = true;
@@ -137,7 +136,7 @@ public:
 		}
 
 		// retorna a execussao controlada
-		return (al_is_event_queue_empty(queue) && ev.type == ALLEGRO_EVENT_TIMER);
+		return (ev.type == ALLEGRO_EVENT_TIMER);
 	}
 
 	// retorna a pos x do mouse
